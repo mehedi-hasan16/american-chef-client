@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import ChefCard from "../ChefCard/ChefCard";
+import { Row } from "react-bootstrap";
 
 const ChefArea = () => {
     const [data, setData] = useState([]);
@@ -12,9 +13,9 @@ const ChefArea = () => {
         .then(data=>setData(data))
     },[])
     return (
-        <div>
+        <Row xs={1} md={3}>
             {data.map(chef=><ChefCard key={chef.id} chef={chef}></ChefCard>)}
-        </div>
+        </Row>
     );
 };
 
