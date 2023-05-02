@@ -17,7 +17,7 @@ const NavigationBar = () => {
                             <Nav.Link href="#action2">Blog</Nav.Link>
                         </Nav>
 
-                            <Button variant="outline-success">Login</Button>
+                            <Button variant="outline-danger">Login</Button>
 
                     </Navbar.Collapse>
                 </Container>

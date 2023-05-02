@@ -1,4 +1,7 @@
+/* eslint-disable react/prop-types */
 import { Card, Col } from "react-bootstrap";
+import { FaRegStar, FaStar } from "react-icons/fa";
+import Rating from "react-rating";
 
 const Recipe = ({ recipe }) => {
     
@@ -10,9 +13,16 @@ const Recipe = ({ recipe }) => {
                 <Card.Body>
                     <Card.Title>{name}</Card.Title>
                     <Card.Text>
-                        <div>ingredients: {ingredients}</div>
-                        <div>Method: {cooking_method}</div>
-                        <div>{rating}</div>
+                        <div><span className="fw-bold">Ingredients:</span> {ingredients.map(n=> n +',').join(' ')}</div>
+                        <div><span className="fw-bold">Method:</span> {cooking_method}</div>
+                        <div><Rating
+                            placeholderRating={rating}
+                            readonly
+                            emptySymbol={<FaRegStar></FaRegStar>}
+                            placeholderSymbol={<FaStar className="text-warning"></FaStar>}
+                            fullSymbol={<FaStar></FaStar>}
+                        />
+                        <span> {rating}</span></div>
                     </Card.Text>
                 </Card.Body>
                 <Card.Footer>
