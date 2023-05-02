@@ -6,6 +6,8 @@ import ChefDetails from "../components/ChefDetails/ChefDetails";
 import VerifiLayout from "../layout/VerifiLayout";
 import Login from "../components/UserVerifi/Login/Login";
 import Register from "../components/UserVerifi/Register/Register";
+import PrivateRoute from "./PrivateRoute";
+import Blog from "../components/Blog/Blog";
 
 const router = createBrowserRouter([
   {
@@ -25,7 +27,7 @@ const router = createBrowserRouter([
     children: [
         {
             path: '/chef/:id',
-            element:<ChefDetails></ChefDetails>,
+            element:<PrivateRoute><ChefDetails></ChefDetails></PrivateRoute>,
             loader: ({params}) => fetch(`http://localhost:5000/chef/${params.id}`),
             
         }
@@ -42,6 +44,10 @@ const router = createBrowserRouter([
       {
           path: '/register',
           element:<Register></Register>,
+      },
+      {
+        path:'/blog',
+        element:<Blog></Blog>
       }
   ]
 },

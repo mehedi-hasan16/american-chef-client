@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import { Tooltip as ReactTooltip } from "react-tooltip";
 import { FaUserCircle } from "react-icons/fa";
+import ActiveLink from "../../components/ActiveLink/ActiveLink";
 
 const NavigationBar = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -34,8 +35,9 @@ const NavigationBar = () => {
                             style={{ maxHeight: '100px' }}
                             navbarScroll
                         >
-                            <Nav.Link href="#action1">Home</Nav.Link>
-                            <Nav.Link href="#action2">Blog</Nav.Link>
+                            <ActiveLink to='/'>Home</ActiveLink>
+                            <ActiveLink to='/blog'>Blog</ActiveLink>
+                            
                         </Nav>
                         {
                             user?.photoURL
