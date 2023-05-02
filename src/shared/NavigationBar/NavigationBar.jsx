@@ -1,4 +1,5 @@
 import { Button, Container, Nav, Navbar } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const NavigationBar = () => {
     return (
@@ -17,7 +18,7 @@ const NavigationBar = () => {
                             <Nav.Link href="#action2">Blog</Nav.Link>
                         </Nav>
 
-                            <Button variant="outline-danger">Login</Button>
+                            <Link to={'/login'}><Button variant="outline-danger">Login</Button></Link>
 
                     </Navbar.Collapse>
                 </Container>

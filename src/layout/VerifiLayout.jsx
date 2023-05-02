@@ -3,7 +3,7 @@ import NavigationBar from "../shared/NavigationBar/NavigationBar";
 import Footer from "../components/Footer/Footer";
 
 
-const ChefDetailsLayout = () => {
+const VerifiLayout = () => {
     return (
         <div>
             <NavigationBar></NavigationBar>
@@ -13,4 +13,4 @@ const ChefDetailsLayout = () => {
     );
 };
 
-export default ChefDetailsLayout;
+export default VerifiLayout;

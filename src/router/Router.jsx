@@ -1,8 +1,11 @@
-import { createBrowserRouter } from "react-router-dom";
+import { Navigate, createBrowserRouter } from "react-router-dom";
 import HomePageLayout from "../layout/HomePageLayout";
 import ChefArea from "../components/ChefArea/ChefArea";
 import ChefDetailsLayout from "../layout/ChefDetailsLayout";
 import ChefDetails from "../components/ChefDetails/ChefDetails";
+import VerifiLayout from "../layout/VerifiLayout";
+import Login from "../components/UserVerifi/Login/Login";
+import Register from "../components/UserVerifi/Register/Register";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +30,20 @@ const router = createBrowserRouter([
             
         }
     ]
+},
+{
+  path: '/',
+  element: <VerifiLayout></VerifiLayout>,
+  children: [
+      {
+          path: '/login',
+          element:<Login></Login>,
+      },
+      {
+          path: '/register',
+          element:<Register></Register>,
+      }
+  ]
 },
   ]);
   export default router;
