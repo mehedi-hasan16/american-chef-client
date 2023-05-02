@@ -7,15 +7,18 @@ import { Row } from "react-bootstrap";
 const ChefArea = () => {
     const [data, setData] = useState([]);
 
-    useEffect(()=>{
+    useEffect(() => {
         fetch('http://localhost:5000/chef')
-        .then(res=>res.json())
-        .then(data=>setData(data))
-    },[])
+            .then(res => res.json())
+            .then(data => setData(data))
+    }, [])
     return (
-        <Row xs={1} md={3}>
-            {data.map(chef=><ChefCard key={chef.id} chef={chef}></ChefCard>)}
-        </Row>
+        <div className="container">
+            <h1 className="text-center mt-4">Choose Chef</h1>
+            <Row xs={1} md={3}>
+                {data.map(chef => <ChefCard key={chef.id} chef={chef}></ChefCard>)}
+            </Row>
+        </div>
     );
 };
 
