@@ -6,7 +6,7 @@ import { AuthContext } from "../../../provider/AuthProvider";
 
 
 const Login = () => {
-    const {userLogin}= useContext(AuthContext);
+    const {userLogin, googleSignin, githubLogin}= useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
     const mainLocation = location.state?.from?.pathname ||'/';
@@ -26,6 +26,26 @@ const Login = () => {
             navigate(mainLocation , {replace:true})
         })
         .catch((error)=>{
+            console.log(error.message);
+        })
+    }
+    const handelGoogleSignIn= ()=>{
+        googleSignin()
+        .then(result=>{
+            const loggedUser = result.user;
+            console.log(loggedUser);
+        })
+        .catch(error=>{
+            console.log(error.message);
+        })
+    }
+    const handelGithubSignIn = () =>{
+        githubLogin()
+        .then(result=>{
+            const loggedUser = result.user;
+            console.log(loggedUser);
+        })
+        .catch(error=>{
             console.log(error.message);
         })
     }
@@ -54,8 +74,8 @@ const Login = () => {
         </Form>
         <div className="d-flex flex-column align-items-center my-2">
             <h4>Or, login with</h4>
-           <div className="mb-2"> <Button variant="outline-success"><FaFacebook/> Login with Google</Button></div>
-            <div><Button variant="outline-danger"><FaGithub/> Login with GitHub</Button></div>
+           <div className="mb-2"> <Button onClick={handelGoogleSignIn} variant="outline-success"><FaFacebook/> Login with Google</Button></div>
+            <div><Button onClick={handelGithubSignIn} variant="outline-danger"><FaGithub/> Login with GitHub</Button></div>
         </div>
     </div>
     );

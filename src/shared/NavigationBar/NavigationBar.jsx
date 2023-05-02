@@ -48,7 +48,7 @@ const NavigationBar = () => {
                                 : <Link to={'/login'}><Button variant="outline-danger">Login</Button></Link>
                         }
                         <ReactTooltip
-                            anchorId="second-app-title"
+                            id="second-app-title"
                             place="left"
                             variant="info"
                             content={user?.displayName}
