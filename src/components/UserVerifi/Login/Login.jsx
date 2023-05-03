@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { FaFacebook, FaGithub } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -11,9 +11,11 @@ const Login = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const mainLocation = location.state?.from?.pathname ||'/';
+    const [error, setError]= useState([])
 
     const handleSubmit= event =>{
         event.preventDefault();
+        setError('')
         const form= event.target;
         const email = form.email.value;
         const password = form.password.value;
@@ -27,7 +29,7 @@ const Login = () => {
             navigate(mainLocation , {replace:true})
         })
         .catch((error)=>{
-            console.log(error.message);
+            setError(error.message);
         })
     }
     const handelGoogleSignIn= ()=>{
@@ -37,7 +39,7 @@ const Login = () => {
             console.log(loggedUser);
         })
         .catch(error=>{
-            console.log(error.message);
+            setError(error.message);
         })
     }
     const handelGithubSignIn = () =>{
@@ -47,7 +49,7 @@ const Login = () => {
             console.log(loggedUser);
         })
         .catch(error=>{
-            console.log(error.message);
+            setError(error.message);
         })
     }
 
@@ -71,6 +73,7 @@ const Login = () => {
             <Button variant="primary" type="submit">Login</Button><br />
             <Form.Text>
                 Don't have an account? <Link to={'/register'}>Register</Link>
+                <div className="text-danger text-center">{error}</div>
             </Form.Text>
         </Form>
         <div className="d-flex flex-column align-items-center my-2">
