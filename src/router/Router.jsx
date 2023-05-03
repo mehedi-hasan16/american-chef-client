@@ -53,6 +53,10 @@ const router = createBrowserRouter([
         loader:()=> fetch('http://localhost:5000/blog')
       }
   ]
+  },
+  {
+    path:'*',
+    element:<NotFound></NotFound>
   }
   ]);
   export default router;

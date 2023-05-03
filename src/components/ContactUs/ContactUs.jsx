@@ -1,10 +1,17 @@
+import { Col, Row } from "react-bootstrap";
+import contactImg from '../../assets/contact.jpg'
 
 
 const ContactUs = () => {
     return (
         <div className="my-4 container">
-      <h2 className="mb-3 text-center">Contact With Us</h2>
-      <form className="border p-4 rounded">
+      <h2 className="mb-4 text-center">Contact With Us</h2>
+      <Row xs={1} md={2}>
+                <Col>
+                <img className="img-fluid rounded border" src={contactImg} alt="" />
+                </Col>
+                <Col>
+                <form className="border p-4 rounded">
         <div className="mb-3">
           <label className="form-label" htmlFor="name">
             Name
@@ -27,8 +34,10 @@ const ContactUs = () => {
           Submit
         </button>
       </form>
-    </div>
-              
+                </Col>
+            </Row>
+      
+    </div>  
     );
 };
 

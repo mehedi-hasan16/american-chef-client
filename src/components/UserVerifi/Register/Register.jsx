@@ -54,7 +54,7 @@ const Register = () => {
 
 
     return (
-        <div className="vh-100">
+        <div className="min-vh-100">
             <h1 className="text-center my-4">Register your account</h1>
            <Form onSubmit={handleRegister} className="w-25 mx-auto border rounded p-4">
            <Form.Group className="mb-3" controlId="formBasicName">
