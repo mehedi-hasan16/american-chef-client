@@ -10,6 +10,7 @@ const ChefArea = () => {
     return (
         <div className="container">
             <h1 className="text-center mt-4">Choose Chef</h1>
+            
             <Row xs={1} md={3}>
                 {data.map(chef => <ChefCard key={chef.id} chef={chef}></ChefCard>)}
             </Row>

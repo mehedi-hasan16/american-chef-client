@@ -8,8 +8,10 @@ import Login from "../components/UserVerifi/Login/Login";
 import Register from "../components/UserVerifi/Register/Register";
 import PrivateRoute from "./PrivateRoute";
 import Blog from "../components/Blog/Blog";
+import NotFound from "../components/NotFound/NotFound";
 
 const router = createBrowserRouter([
+  
   {
     path: '/',
     element: <HomePageLayout/>,
@@ -20,7 +22,7 @@ const router = createBrowserRouter([
             loader: () => fetch(`http://localhost:5000/chef`)
         }
     ]
-},
+  },
   {
     path: '/chef',
     element: <ChefDetailsLayout></ChefDetailsLayout>,
@@ -32,8 +34,8 @@ const router = createBrowserRouter([
             
         }
     ]
-},
-{
+  },
+  {
   path: '/',
   element: <VerifiLayout></VerifiLayout>,
   children: [
@@ -47,9 +49,10 @@ const router = createBrowserRouter([
       },
       {
         path:'/blog',
-        element:<Blog></Blog>
+        element:<Blog></Blog>,
+        loader:()=> fetch('http://localhost:5000/blog')
       }
   ]
-},
+  }
   ]);
   export default router;

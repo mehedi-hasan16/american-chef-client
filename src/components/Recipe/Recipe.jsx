@@ -13,7 +13,7 @@ const Recipe = ({ recipe }) => {
 
     const handelLike = () => {
         setLike(false);
-        toast("You have liked");
+        toast("Recipe is your favorite");
     }
     console.log(like);
 

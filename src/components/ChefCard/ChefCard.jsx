@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Button, Card, Col } from "react-bootstrap";
 import { FaRegStar, FaStar } from "react-icons/fa";
+import LazyLoad from "react-lazy-load";
 import Rating from "react-rating";
 import { Link } from "react-router-dom";
 
@@ -10,7 +11,10 @@ const ChefCard = ({ chef }) => {
 
         <Col>
             <Card className="my-3">
-                <Card.Img variant="top" src={picture} />
+                <LazyLoad threshold={0.95} onContentVisible={() => {console.log('loaded!')}}>
+                    <Card.Img variant="top" src={picture} />
+                </LazyLoad>
+
                 <Card.Body>
                     <Card.Title>{name}</Card.Title>
                     <Card.Text>

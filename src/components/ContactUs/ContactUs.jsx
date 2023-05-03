@@ -2,7 +2,7 @@
 
 const ContactUs = () => {
     return (
-        <div className="w-50 my-4 mx-auto">
+        <div className="my-4 container">
       <h2 className="mb-3 text-center">Contact With Us</h2>
       <form className="border p-4 rounded">
         <div className="mb-3">
