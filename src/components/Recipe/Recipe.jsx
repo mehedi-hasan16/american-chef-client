@@ -1,11 +1,22 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
+import { useState } from "react";
 import { Card, Col } from "react-bootstrap";
-import { FaRegStar, FaStar } from "react-icons/fa";
+import { FaHeart, FaRegHeart, FaRegStar, FaStar } from "react-icons/fa";
 import Rating from "react-rating";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Recipe = ({ recipe }) => {
+    const [like, setLike] = useState(true)
+
+    const handelLike= ()=>{
+        setLike(!like);
+        toast("You have liked");
+    }
+    console.log(like);
     
-    const {id, name, picture, ingredients, rating, cooking_method}= recipe;
+    const {name, picture, ingredients, rating, cooking_method}= recipe;
     return (
         <Col >
             <Card className="my-3">
@@ -26,7 +37,9 @@ const Recipe = ({ recipe }) => {
                     </Card.Text>
                 </Card.Body>
                 <Card.Footer>
-                    <div>icon</div>
+                    <div onClick={handelLike}><span>{like?<FaRegHeart></FaRegHeart>:<FaHeart></FaHeart>}</span></div>
+                    <ToastContainer
+                    position="top-center" />
                 </Card.Footer>
             </Card>
         </Col>
