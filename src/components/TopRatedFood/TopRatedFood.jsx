@@ -7,7 +7,7 @@ const TopRatedFood = () => {
     const [data, setData] = useState([]);
 
     useEffect(()=>{
-        fetch('http://localhost:5000/topFood')
+        fetch('https://american-recipe-server.vercel.app/topFood')
         .then(res=>res.json())
         .then(data=>setData(data))
     },[])

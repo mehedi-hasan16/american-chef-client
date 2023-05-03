@@ -9,13 +9,12 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Recipe = ({ recipe }) => {
     const [like, setLike] = useState(true)
-    console.log(like);
+
 
     const handelLike = () => {
         setLike(false);
         toast("Recipe is your favorite");
     }
-    console.log(like);
 
     const { name, picture, ingredients, rating, cooking_method } = recipe;
     return (

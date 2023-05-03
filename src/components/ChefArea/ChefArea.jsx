@@ -6,7 +6,6 @@ import { useLoaderData } from "react-router-dom";
 
 const ChefArea = () => {
     const data = useLoaderData();
-    console.log(data);
     return (
         <div className="container">
             <h1 className="text-center mt-4">Choose Chef</h1>
