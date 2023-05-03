@@ -2,9 +2,8 @@ import { useContext } from "react";
 import { Button, Container, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
-import { Tooltip as ReactTooltip } from "react-tooltip";
-import { FaUserCircle } from "react-icons/fa";
 import ActiveLink from "../../components/ActiveLink/ActiveLink";
+import { Tooltip } from 'react-tooltip'
 
 const NavigationBar = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -14,14 +13,14 @@ const NavigationBar = () => {
         padding: '2px',
         marginRight: '3px'
     }
-    const handellogOut=()=>{
+    const handellogOut = () => {
         logOut()
-        .then(()=>{
-            console.log('user sign out successfully');
-        })
-        .catch((error)=>{
-            console.log(error.message);
-        })
+            .then(() => {
+                console.log('user sign out successfully');
+            })
+            .catch((error) => {
+                console.log(error.message);
+            })
     }
     return (
         <div>
@@ -37,28 +36,33 @@ const NavigationBar = () => {
                         >
                             <ActiveLink to='/'>Home</ActiveLink>
                             <ActiveLink to='/blog'>Blog</ActiveLink>
-                            
+
                         </Nav>
+                        <a
+                            data-tooltip-id="my-tooltip"
+                            data-tooltip-content={user?.displayName}
+                            data-tooltip-place="left"
+                        >
+                           <span>
                         {
-                            user?.photoURL
-                                ? <span><img src={user.photoURL} alt="" style={profilePicStyle} id="second-app-title" /></span> 
-                                :  <span>{user?.email}</span>
+                            user?.photoURL &&
+                                 <span><img src={user.photoURL} alt="" style={profilePicStyle} id="second-app-title" /></span> || <span>{user?.email}</span>
+            
                         }
+                        </span>
+                        </a>
+                        <Tooltip id="my-tooltip" />
                         {
                             user
                                 ? <Button onClick={handellogOut} variant="outline-danger">Logout</Button>
                                 : <Link to={'/login'}><Button variant="outline-danger">Login</Button></Link>
                         }
-                        <ReactTooltip
-                            id="second-app-title"
-                            place="left"
-                            variant="info"
-                            content={user?.displayName}
-                        />
+
 
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
+
         </div>
     );
 };

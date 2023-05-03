@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { useContext } from "react";
 import { Button, Form } from "react-bootstrap";
 import { FaFacebook, FaGithub } from "react-icons/fa";
