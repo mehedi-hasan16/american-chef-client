@@ -29,7 +29,7 @@ const ChefCard = ({ chef }) => {
                     </Card.Text>
                 </Card.Body>
                 <Card.Footer>
-                    <Link to={`chef/${id}`}><Button className="btn-danger">See Details</Button></Link>
+                    <Link to={`chef/${id}`}><Button className="btn-danger">View Recipes</Button></Link>
                 </Card.Footer>
             </Card>
         </Col>

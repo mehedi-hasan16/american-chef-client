@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import { useState } from "react";
-import { Card, Col } from "react-bootstrap";
+import { Button, Card, Col } from "react-bootstrap";
 import { FaHeart, FaRegHeart, FaRegStar, FaStar } from "react-icons/fa";
 import Rating from "react-rating";
 import { ToastContainer, toast } from 'react-toastify';
@@ -9,14 +9,15 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Recipe = ({ recipe }) => {
     const [like, setLike] = useState(true)
+    console.log(like);
 
-    const handelLike= ()=>{
-        setLike(!like);
+    const handelLike = () => {
+        setLike(false);
         toast("You have liked");
     }
     console.log(like);
-    
-    const {name, picture, ingredients, rating, cooking_method}= recipe;
+
+    const { name, picture, ingredients, rating, cooking_method } = recipe;
     return (
         <Col >
             <Card className="my-3">
@@ -24,7 +25,7 @@ const Recipe = ({ recipe }) => {
                 <Card.Body>
                     <Card.Title>{name}</Card.Title>
                     <Card.Text>
-                        <div><span className="fw-bold">Ingredients:</span> {ingredients.map(n=> n +',').join(' ')}</div>
+                        <div><span className="fw-bold">Ingredients:</span> {ingredients.map(n => n + ',').join(' ')}</div>
                         <div><span className="fw-bold">Method:</span> {cooking_method}</div>
                         <div><Rating
                             placeholderRating={rating}
@@ -33,13 +34,19 @@ const Recipe = ({ recipe }) => {
                             placeholderSymbol={<FaStar className="text-warning"></FaStar>}
                             fullSymbol={<FaStar></FaStar>}
                         />
-                        <span> {rating}</span></div>
+                            <span> {rating}</span></div>
                     </Card.Text>
                 </Card.Body>
                 <Card.Footer>
-                    <div onClick={handelLike}><span>{like?<FaRegHeart></FaRegHeart>:<FaHeart></FaHeart>}</span></div>
+
+                    <Button onClick={handelLike} disabled={!like} className="bg-danger border border-0 rounded-circle">
+                        <span>
+                            {like ? <FaRegHeart></FaRegHeart> : <FaHeart></FaHeart>}
+                        </span>
+                    </Button>
+
                     <ToastContainer
-                    position="top-center" />
+                        position="top-center" />
                 </Card.Footer>
             </Card>
         </Col>
