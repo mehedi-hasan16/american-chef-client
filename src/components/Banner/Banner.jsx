@@ -14,7 +14,7 @@ const Banner = () => {
           alt="First slide"
         />
         <Carousel.Caption>
-          <h1>Unleash your inner chef</h1>
+          <h2>Unleash your inner chef</h2>
           <p>The website might offer a range of recipes, cooking tips, and instructional videos that inspire users to try new techniques and explore new flavors.</p>
         </Carousel.Caption>
       </Carousel.Item>
@@ -26,7 +26,7 @@ const Banner = () => {
         />
 
         <Carousel.Caption>
-          <h1>Bringing the world to your plate</h1>
+          <h2>Bringing the world to your plate</h2>
           <p>The website might feature recipes from different regions, along with information on traditional cooking methods and ingredients.</p>
         </Carousel.Caption>
       </Carousel.Item>
@@ -38,7 +38,7 @@ const Banner = () => {
         />
 
         <Carousel.Caption>
-          <h1>Cooking made easy</h1>
+          <h2>Cooking made easy</h2>
           <p>
           The website might feature quick and easy recipes, step-by-step instructions, and helpful tips and tricks for preparing meals in a hurry
           </p>
