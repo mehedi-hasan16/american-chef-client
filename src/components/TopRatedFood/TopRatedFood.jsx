@@ -1,19 +1,22 @@
 import { useEffect, useState } from "react";
 import { Card, Col, Row } from "react-bootstrap";
 import { FaEye } from "react-icons/fa";
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 
 
 const TopRatedFood = () => {
     const [data, setData] = useState([]);
-
+    const [isLoading, setIsLoading] = useState(true);
     useEffect(()=>{
         fetch('https://american-recipe-server.vercel.app/topFood')
         .then(res=>res.json())
         .then(data=>setData(data))
+        setIsLoading(false);
     },[])
     return (
         <div className="container mb-4">
             <h1 className="my-4 text-center">Top Rated Food</h1>
+            {isLoading ? <LoadingSpinner /> : ''}
             <Row xs={1} md={3} className="g-4">
             {
                 data.map(n=><Col key={n.id}>

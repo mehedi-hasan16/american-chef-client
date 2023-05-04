@@ -3,12 +3,19 @@ import Recipe from "../Recipe/Recipe";
 import { Row } from "react-bootstrap";
 import Rating from "react-rating";
 import { FaRegStar, FaStar } from "react-icons/fa";
+import { useEffect, useState } from "react";
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 
 const ChefDetails = () => {
+    const [isLoading, setIsLoading] = useState(true);
     const chefDetails = useLoaderData();
+    useEffect(() => {
+        setIsLoading(false);
+    }, []);
     const { name, picture, years_of_experience, num_recipes, bio, rating, recipes } = chefDetails;
     return (
         <div className="container">
+            {isLoading ? <LoadingSpinner /> : ''}
             <div className="card mb-3 my-4">
                 <div className="row g-0">
                     <div className="col-md-4">

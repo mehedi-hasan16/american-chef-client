@@ -37,6 +37,7 @@ const Login = () => {
         .then(result=>{
             const loggedUser = result.user;
             console.log(loggedUser);
+            navigate(mainLocation , {replace:true})
         })
         .catch(error=>{
             setError(error.message);
@@ -47,6 +48,7 @@ const Login = () => {
         .then(result=>{
             const loggedUser = result.user;
             console.log(loggedUser);
+            navigate(mainLocation , {replace:true})
         })
         .catch(error=>{
             setError(error.message);
